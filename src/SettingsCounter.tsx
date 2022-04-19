@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, FC, memo} from 'react';
 import {UniversalButton} from './UniversalButton';
 
 type SetPropsType = {
@@ -12,7 +12,7 @@ type SetPropsType = {
 }
 
 
-const SettingsCounter = (props: SetPropsType) => {
+const SettingsCounter: FC<SetPropsType> = memo((props: SetPropsType) => {
 
     const setOnClickHandler = () => {
         props.onClickCallback()
@@ -65,6 +65,6 @@ const SettingsCounter = (props: SetPropsType) => {
             </div>
         </div>
     );
-};
+});
 
 export default SettingsCounter;
