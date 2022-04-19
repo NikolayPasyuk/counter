@@ -1,3 +1,5 @@
+import {startNumberToCounterAC} from '../actions';
+
 type ActionsType = ReturnType<typeof startNumberToCounterAC>
 
 const initialState = {
@@ -16,12 +18,5 @@ export const startNumberReducer = (state: initialStateType = initialState, actio
         default:
             return state
     }
-}
-
-
-export const startNumberToCounterAC = (value: number) => {
-    return {
-        type: 'START-NUMBER-TO-COUNTER', value
-    } as const
 }
 

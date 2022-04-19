@@ -1,3 +1,5 @@
+import {setMaxNumberToCounterAC} from '../actions';
+
 type ActionsType = ReturnType<typeof setMaxNumberToCounterAC>
 
 const initialState = {
@@ -16,12 +18,5 @@ export const maxNumberReducer = (state: initialStateType = initialState, action:
         default:
             return state
     }
-}
-
-
-export const setMaxNumberToCounterAC = (title: number) => {
-    return {
-        type: 'SET-MAX-NUMBER-TO-COUNTER', title
-    } as const
 }
 

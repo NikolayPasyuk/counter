@@ -3,15 +3,18 @@ import './App.css';
 import SettingsCounter from './SettingsCounter';
 import Counter from './Counter';
 import {useDispatch, useSelector} from 'react-redux';
-import {setMaxNumberToCounterAC} from './bll/reducers/maxNumber-reducer';
-import {startNumberToCounterAC} from './bll/reducers/startNumber-reducer';
 import {
     stateMaxNumberToCounterAC,
     stateSetNumberToCounterAC,
     stateStartNumberToCounterAC
 } from './bll/reducers/state-reducer';
 import {selectCount, selectMax, selectStartValue, selectState} from './bll/selectors';
-import {addNumberToCounterAC, onClickResetToCounterAC, setOnClickToCounterAC} from './bll/actions';
+import {
+    addNumberToCounterAC,
+    onClickResetToCounterAC,
+    setMaxNumberToCounterAC,
+    setOnClickToCounterAC, startNumberToCounterAC
+} from './bll/actions';
 
 function App() {
 
