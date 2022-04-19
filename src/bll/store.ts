@@ -1,18 +1,28 @@
-import {combineReducers, createStore} from 'redux';
+import {combineReducers, compose, createStore, Store} from 'redux';
 import {counterReducer} from './reducers/counter-reducer';
 import {maxNumberReducer} from './reducers/maxNumber-reducer';
 import {loadState, saveState} from '../utils/localStorage-utils';
 import {startNumberReducer} from './reducers/startNumber-reducer';
 import {stateReducer} from './reducers/state-reducer';
 
-const rootReducer = combineReducers({
+
+declare global {
+    interface Window {
+        __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+    }
+}
+
+const rootReducers = combineReducers({
     counter: counterReducer,
     maxNumber: maxNumberReducer,
     startNumber: startNumberReducer,
-    state:stateReducer
+    state: stateReducer
 })
 
-export const store = createStore(rootReducer, loadState());
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+export const store: Store<AppRootStateType> = createStore(rootReducers, loadState(), composeEnhancers());
+
+export type AppRootStateType = ReturnType<typeof rootReducers>
 
 store.subscribe(() => {
     saveState({
@@ -20,5 +30,5 @@ store.subscribe(() => {
     })
 })
 
-export type AppRootStateType = ReturnType<typeof rootReducer>
-
+//@ts-ignore
+window.store = store;
