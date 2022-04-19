@@ -35,9 +35,9 @@ function App() {
         }
     }, [dispatch, count, max])
 
-    const onClickResetToCounter = () => {
+    const onClickResetToCounter = useCallback(() => {
         dispatch(onClickResetToCounterAC())
-    }
+    }, [dispatch])
 
     const setOnClickFunction = () => {
         dispatch(setOnClickToCounterAC(startValue))
