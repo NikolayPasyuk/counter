@@ -1,9 +1,7 @@
-export type addNumberToCounterActionType = ReturnType<typeof addNumberToCounterAC>
-export type onClickResetToCounterActionType = ReturnType<typeof onClickResetToCounterAC>
-export type setOnClickCounterActionType = ReturnType<typeof setOnClickToCounterAC>
+import {addNumberToCounterAC, onClickResetToCounterAC, setOnClickToCounterAC} from '../actions';
 
-export  type ActionsType = addNumberToCounterActionType | onClickResetToCounterActionType
-    | setOnClickCounterActionType
+export  type ActionsType = ReturnType<typeof addNumberToCounterAC> | ReturnType<typeof onClickResetToCounterAC>
+    | ReturnType<typeof setOnClickToCounterAC>
 
 const initialState = {
     value: 0
@@ -31,14 +29,3 @@ export const counterReducer = (state: initialStateType = initialState, action: A
             return state
     }
 }
-
-
-export const addNumberToCounterAC = () => (
-    {type: 'ADD-NUMBER-TO-COUNTER'} as const)
-
-export const onClickResetToCounterAC = () => (
-    {type: 'ONClICK-RESET-TO-COUNTER'} as const)
-
-export const setOnClickToCounterAC = (startNumber: number) => (
-    {type: 'SET-ONClICK-TO-COUNTER', startNumber} as const)
-
