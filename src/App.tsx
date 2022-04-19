@@ -29,11 +29,11 @@ function App() {
         dispatch(stateStartNumberToCounterAC(true))
     }, [dispatch])
 
-    const addNumberToCounter = () => {
+    const addNumberToCounter = useCallback(() => {
         if (count < max) {
             dispatch(addNumberToCounterAC())
         }
-    }
+    }, [dispatch, count, max])
 
     const onClickResetToCounter = () => {
         dispatch(onClickResetToCounterAC())
