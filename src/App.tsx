@@ -39,10 +39,10 @@ function App() {
         dispatch(onClickResetToCounterAC())
     }, [dispatch])
 
-    const setOnClickFunction = () => {
+    const setOnClickFunction = useCallback(() => {
         dispatch(setOnClickToCounterAC(startValue))
         dispatch(stateSetNumberToCounterAC(!state))
-    }
+    }, [dispatch, startValue, state])
 
     return (
         <div className="counter">
