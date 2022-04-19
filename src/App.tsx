@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import './App.css';
 import SettingsCounter from './SettingsCounter';
 import Counter from './Counter';
@@ -19,10 +19,10 @@ function App() {
     const state = useSelector<AppRootStateType, boolean>(state => state.state.value)
 
 
-    const maxCallbackFunction = (title: number) => {
+    const maxCallbackFunction = useCallback((title: number) => {
         dispatch(setMaxNumberToCounterAC(title))
         dispatch(stateMaxNumberToCounterAC(true))
-    }
+    }, [dispatch])
 
     const startCallbackFunction = (value: number) => {
         dispatch(startNumberToCounterAC(value))
