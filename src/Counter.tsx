@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {FC, memo, useCallback} from 'react';
 import {UniversalButton} from './UniversalButton';
 
 type SetPropsType = {
@@ -11,24 +11,31 @@ type SetPropsType = {
 }
 
 
-const Counter = React.memo((props: SetPropsType) => {
+const Counter: FC<SetPropsType> = memo(({
+                                            maxValue,
+                                            startValue,
+                                            count,
+                                            addNumberToCounter,
+                                            onClickResetToCounter,
+                                            state
+                                        }) => {
 
     const onClickIncHandler = useCallback(() => {
-        props.addNumberToCounter()
-    }, [props.addNumberToCounter])
+        addNumberToCounter()
+    }, [addNumberToCounter])
 
     const onClickResetHandler = useCallback(() => {
-        props.onClickResetToCounter()
-    }, [props.onClickResetToCounter])
+        onClickResetToCounter()
+    }, [onClickResetToCounter])
 
     const errorName = <span className={'error-text'}>Incorrect value</span>
 
-    const enterValues = !props.state ? props.count
+    const enterValues = !state ? count
         : <span className={'set-value'}>enter values and press 'set'</span>
 
-    const error = props.startValue >= props.maxValue || props.startValue < 0
+    const error = startValue >= maxValue || startValue < 0
 
-    const errorNumber = props.count === props.maxValue ? 'number-error' : ''
+    const errorNumber = count === maxValue ? 'number-error' : ''
 
 
     return (
@@ -41,19 +48,19 @@ const Counter = React.memo((props: SetPropsType) => {
             <div className={'counter-function'}>
                 <UniversalButton
                     title={'inc'}
-                    count={props.count}
-                    startValue={props.startValue}
-                    maxValue={props.maxValue}
+                    count={count}
+                    startValue={startValue}
+                    maxValue={maxValue}
                     callback={onClickIncHandler}
-                    state={props.state}
+                    state={state}
                 />
                 <UniversalButton
                     title={'reset'}
-                    count={props.count}
-                    startValue={props.startValue}
-                    maxValue={props.maxValue}
+                    count={count}
+                    startValue={startValue}
+                    maxValue={maxValue}
                     callback={onClickResetHandler}
-                    state={props.state}
+                    state={state}
                 />
             </div>
         </div>
