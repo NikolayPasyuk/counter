@@ -1,38 +1,105 @@
-.App {
-  text-align: center;
+
+.counter {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -150px 0 0 -150px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.counter-body {
+    border: 2px solid burlywood;
+    border-radius: 10px;
+    width: 300px;
+    height: 250px;
+    text-align: center;
+    padding: 20px 1px 1px 1px;
+    margin: 0 100px 0 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.counter-function {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid burlywood;
+    border-radius: 10px;
+    width: 250px;
+    height: 100px;
+    margin: 20px auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.universal-button {
+    width: 80px;
+    height: 40px;
+    background: burlywood;
+    margin-top: 25px;
+    align-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.table-number {
+    background: burlywood;
+    width: 250px;
+    height: 100px;
+    margin: 1px 10px 1px 10px;
+    border-radius: 10px;
+    font-size: 70px;
+    font-family: "Arial Black";
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.set-number {
+    display: flex;
+    padding: 15px 0px 0px 10px
+}
+
+.set-input {
+    display: block;
+    width: 45%;
+    height: 20px;
+    border: 1px solid burlywood;
+    font-family: inherit;
+    text-align: center;
+}
+
+.value-max {
+    font-size: 15px;
+    padding: 0 30px 0 0;
+}
+
+.value-start {
+    font-size: 15px;
+    padding: 0 25px 0 0;
+}
+
+.start-error {
+    display: block;
+    width: 45%;
+    height: 20px;
+    background: red;
+    font-family: inherit;
+    text-align: center;
+}
+
+.set-value {
+    display: block;
+    font-size: 20px;
+    color: aqua;
+    padding: 25px 5px 0 5px;
+}
+
+.error-text {
+    display: block;
+    font-size: 20px;
+    color: red;
+    padding: 30px 0 0 0;
+}
+
+.number-error {
+    color: red;
+    font-size: 70px;
+    font-family: "Arial Black";
 }
