@@ -26,7 +26,7 @@ const SettingsCounter: FC<SetPropsType> = memo(({
         onClickCallback()
     }
     const onClickMaxHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        maxCallback(parseInt(e.currentTarget.value, 10))
+        maxCallback(+e.currentTarget.value)
     }
 
     const onClickStartHandler = (e: ChangeEvent<HTMLInputElement>) => {
