@@ -24,10 +24,10 @@ function App() {
         dispatch(stateMaxNumberToCounterAC(true))
     }, [dispatch])
 
-    const startCallbackFunction = (value: number) => {
+    const startCallbackFunction = useCallback((value: number) => {
         dispatch(startNumberToCounterAC(value))
         dispatch(stateStartNumberToCounterAC(true))
-    }
+    }, [dispatch])
 
     const addNumberToCounter = () => {
         if (count < max) {
