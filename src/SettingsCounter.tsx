@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, memo} from 'react';
+import React, {ChangeEvent, FC, memo, useCallback} from 'react';
 import {UniversalButton} from './UniversalButton';
 
 type SetPropsType = {
@@ -22,9 +22,10 @@ const SettingsCounter: FC<SetPropsType> = memo(({
                                                     state
                                                 }) => {
 
-    const setOnClickHandler = () => {
+    const setOnClickHandler = useCallback(() => {
         onClickCallback()
-    }
+    }, [onClickCallback])
+
     const onClickMaxHandler = (e: ChangeEvent<HTMLInputElement>) => {
         maxCallback(+e.currentTarget.value)
     }
