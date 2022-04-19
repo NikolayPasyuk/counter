@@ -17,9 +17,9 @@ const Counter = React.memo((props: SetPropsType) => {
         props.addNumberToCounter()
     }, [props.addNumberToCounter])
 
-    const onClickResetHandler = () => {
+    const onClickResetHandler = useCallback(() => {
         props.onClickResetToCounter()
-    }
+    }, [props.onClickResetToCounter])
 
     const errorName = <span className={'error-text'}>Incorrect value</span>
 
