@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 
 type ButtonPropsType = {
     title: 'set' | 'inc' | 'reset'
@@ -9,7 +9,7 @@ type ButtonPropsType = {
     state: boolean
 }
 
-export const UniversalButton = (props: ButtonPropsType) => {
+export const UniversalButton = memo((props: ButtonPropsType) => {
 
     const onClickHandler = () => {
         props.callback()
@@ -26,4 +26,4 @@ export const UniversalButton = (props: ButtonPropsType) => {
                 onClick={onClickHandler}>{props.title}
         </button>
     )
-}
+})
