@@ -10,13 +10,14 @@ type ButtonPropsType = {
 }
 
 export const UniversalButton: FC<ButtonPropsType> = memo(({
-                                                              title, count, startValue, maxValue,
-                                                              callback, state
+                                                              title,
+                                                              count,
+                                                              startValue,
+                                                              maxValue,
+                                                              callback,
+                                                              state
                                                           }) => {
 
-    const onClickHandler = () => {
-        callback()
-    }
 
     const disabled = startValue >= maxValue || startValue < 0 || title === 'inc'
         ? count === maxValue || state
@@ -26,7 +27,7 @@ export const UniversalButton: FC<ButtonPropsType> = memo(({
     return (
         <button disabled={disabled}
                 className={'universal-button'}
-                onClick={onClickHandler}>{title}
+                onClick={callback}>{title}
         </button>
     )
 })
