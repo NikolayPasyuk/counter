@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React, {FC, memo} from 'react';
 
 type ButtonPropsType = {
     title: 'set' | 'inc' | 'reset'
@@ -9,21 +9,24 @@ type ButtonPropsType = {
     state: boolean
 }
 
-export const UniversalButton = memo((props: ButtonPropsType) => {
+export const UniversalButton: FC<ButtonPropsType> = memo(({
+                                                              title, count, startValue, maxValue,
+                                                              callback, state
+                                                          }) => {
 
     const onClickHandler = () => {
-        props.callback()
+        callback()
     }
 
-    const disabled = props.startValue >= props.maxValue || props.startValue < 0
-    || props.title === 'inc' ? props.count === props.maxValue || props.state
-        : props.title === 'set' ? !props.state
-            : props.state
+    const disabled = startValue >= maxValue || startValue < 0 || title === 'inc'
+        ? count === maxValue || state
+        : title === 'set' ? !state
+            : state
 
     return (
         <button disabled={disabled}
                 className={'universal-button'}
-                onClick={onClickHandler}>{props.title}
+                onClick={onClickHandler}>{title}
         </button>
     )
 })
