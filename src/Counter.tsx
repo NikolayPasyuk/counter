@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {UniversalButton} from './UniversalButton';
 
 type SetPropsType = {
@@ -13,9 +13,9 @@ type SetPropsType = {
 
 const Counter = React.memo((props: SetPropsType) => {
 
-    const onClickIncHandler = () => {
+    const onClickIncHandler = useCallback(() => {
         props.addNumberToCounter()
-    }
+    }, [props.addNumberToCounter])
 
     const onClickResetHandler = () => {
         props.onClickResetToCounter()
