@@ -1,9 +1,8 @@
 import React, {useCallback} from 'react';
 import './App.css';
-import SettingsCounter from './SettingsCounter';
-import Counter from './Counter';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectCount, selectMax, selectStartValue, selectState} from './bll/selectors';
+import {Counter, SettingsCounter} from './components'
 import {
     addNumberToCounterAC,
     onClickResetToCounterAC,

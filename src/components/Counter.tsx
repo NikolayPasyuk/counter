@@ -1,5 +1,5 @@
 import React, {FC, memo, useCallback} from 'react';
-import {UniversalButton} from './UniversalButton';
+import {UniversalButton} from '../components'
 
 type SetPropsType = {
     maxValue: number
@@ -11,7 +11,7 @@ type SetPropsType = {
 }
 
 
-const Counter: FC<SetPropsType> = memo(({
+export const Counter: FC<SetPropsType> = memo(({
                                             maxValue,
                                             startValue,
                                             count,
@@ -66,5 +66,3 @@ const Counter: FC<SetPropsType> = memo(({
         </div>
     );
 });
-
-export default Counter;

@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FC, memo, useCallback} from 'react';
-import {UniversalButton} from './UniversalButton';
+import {UniversalButton} from '../components'
 
 type SetPropsType = {
     onClickCallback: () => void
@@ -12,15 +12,15 @@ type SetPropsType = {
 }
 
 
-const SettingsCounter: FC<SetPropsType> = memo(({
-                                                    onClickCallback,
-                                                    maxCallback,
-                                                    startCallback,
-                                                    maxValue,
-                                                    startValue,
-                                                    count,
-                                                    state
-                                                }) => {
+export const SettingsCounter: FC<SetPropsType> = memo(({
+                                                           onClickCallback,
+                                                           maxCallback,
+                                                           startCallback,
+                                                           maxValue,
+                                                           startValue,
+                                                           count,
+                                                           state
+                                                       }) => {
 
     const setOnClickHandler = useCallback(() => {
         onClickCallback()
@@ -75,5 +75,3 @@ const SettingsCounter: FC<SetPropsType> = memo(({
         </div>
     );
 });
-
-export default SettingsCounter;
