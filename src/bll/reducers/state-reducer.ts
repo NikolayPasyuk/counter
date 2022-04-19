@@ -1,12 +1,15 @@
-type stateMaxNumberActionType = ReturnType<typeof stateMaxNumberToCounterAC>
-type stateStartNumberActionType = ReturnType<typeof stateStartNumberToCounterAC>
-type stateSetNumberActionType = ReturnType<typeof stateSetNumberToCounterAC>
+import {stateMaxNumberToCounterAC, stateSetNumberToCounterAC, stateStartNumberToCounterAC} from '../actions';
 
-type ActionsType = stateMaxNumberActionType | stateStartNumberActionType | stateSetNumberActionType
+type ActionsType =
+    ReturnType<typeof stateMaxNumberToCounterAC>
+    | ReturnType<typeof stateStartNumberToCounterAC>
+    | ReturnType<typeof stateSetNumberToCounterAC>
+
+export type initialStateType = typeof initialState
+
 const initialState = {
     value: false
 }
-export type initialStateType = typeof initialState
 
 export const stateReducer = (state: initialStateType = initialState, action: ActionsType): initialStateType => {
     switch (action.type) {
@@ -29,22 +32,4 @@ export const stateReducer = (state: initialStateType = initialState, action: Act
         default:
             return state
     }
-}
-
-export const stateMaxNumberToCounterAC = (value: boolean) => {
-    return {
-        type: 'STATE-MAX-TO-NUMBER-COUNTER', value
-    } as const
-}
-
-export const stateStartNumberToCounterAC = (value: boolean) => {
-    return {
-        type: 'STATE-START-NUMBER-TO-COUNTER', value
-    } as const
-}
-
-export const stateSetNumberToCounterAC = (value: boolean) => {
-    return {
-        type: 'STATE-SET-NUMBER-TO-COUNTER', value
-    } as const
 }
