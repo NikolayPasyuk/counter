@@ -1,9 +1,9 @@
 import {combineReducers, createStore} from 'redux';
-import {counterReducer} from './counter-reducer';
-import {maxNumberReducer} from './maxNumber-reducer';
+import {counterReducer} from './reducers/counter-reducer';
+import {maxNumberReducer} from './reducers/maxNumber-reducer';
 import {loadState, saveState} from '../utils/localStorage-utils';
-import {startNumberReducer} from './startNumber-reducer';
-import {stateReducer} from './state-reducer';
+import {startNumberReducer} from './reducers/startNumber-reducer';
+import {stateReducer} from './reducers/state-reducer';
 
 const rootReducer = combineReducers({
     counter: counterReducer,

@@ -2,21 +2,25 @@ import React, {useCallback} from 'react';
 import './App.css';
 import SettingsCounter from './SettingsCounter';
 import Counter from './Counter';
-import {AppRootStateType} from './bll/store';
 import {useDispatch, useSelector} from 'react-redux';
-import {addNumberToCounterAC, onClickResetToCounterAC, setOnClickToCounterAC} from './bll/counter-reducer';
-import {setMaxNumberToCounterAC} from './bll/maxNumber-reducer';
-import {startNumberToCounterAC} from './bll/startNumber-reducer';
-import {stateMaxNumberToCounterAC, stateSetNumberToCounterAC, stateStartNumberToCounterAC} from './bll/state-reducer';
+import {addNumberToCounterAC, onClickResetToCounterAC, setOnClickToCounterAC} from './bll/reducers/counter-reducer';
+import {setMaxNumberToCounterAC} from './bll/reducers/maxNumber-reducer';
+import {startNumberToCounterAC} from './bll/reducers/startNumber-reducer';
+import {
+    stateMaxNumberToCounterAC,
+    stateSetNumberToCounterAC,
+    stateStartNumberToCounterAC
+} from './bll/reducers/state-reducer';
+import {selectCount, selectMax, selectStartValue, selectState} from './bll/selectors';
 
 function App() {
 
     const dispatch = useDispatch()
 
-    const count = useSelector<AppRootStateType, number>(state => state.counter.value)
-    const max = useSelector<AppRootStateType, number>(state => state.maxNumber.value)
-    const startValue = useSelector<AppRootStateType, number>(state => state.startNumber.value)
-    const state = useSelector<AppRootStateType, boolean>(state => state.state.value)
+    const count = useSelector(selectCount)
+    const max = useSelector(selectMax)
+    const startValue = useSelector(selectStartValue)
+    const state = useSelector(selectState)
 
 
     const maxCallbackFunction = useCallback((title: number) => {
