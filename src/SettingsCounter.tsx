@@ -30,7 +30,7 @@ const SettingsCounter: FC<SetPropsType> = memo(({
     }
 
     const onClickStartHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        startCallback(parseInt(e.currentTarget.value, 10))
+        startCallback(+e.currentTarget.value)
     }
 
 
